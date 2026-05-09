@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px;
+}
+
+/* Light mode — default */
+body {
+  background-color: #fafafa;
+  color: #09090b;
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+/* Dark mode */
+.dark body {
+  background-color: #09090b;
+  color: #fafafa;
+}
+
+/* ── Mono font features ──────────────────────────────────────────── */
+.font-mono,
+code,
+pre,
+kbd {
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+/* ── Tabular numbers for stats ───────────────────────────────────── */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* ── Selection ───────────────────────────────────────────────────── */
+::selection {
+  background-color: rgba(249, 115, 22, 0.15);
+  color: #fafafa;
+}
+
+/* ── Focus ───────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 1px solid #f97316;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── Shimmer skeleton ────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #18181b 25%, #27272a 50%, #18181b 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 4px;
+}
